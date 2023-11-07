@@ -1,6 +1,8 @@
 
 #usage :python landmarkPredict.py predictImage  testList.txt
 
+from __future__ import print_function
+
 import os
 import sys
 import numpy as np
@@ -151,7 +153,7 @@ def getFaceImage(image,bboxs,left,right,top,bottom,height,width):
     faces = np.zeros((num,channels,height,width))
     for i in range (0,num):
         faces[i] = getTestPart(bboxs[i],left,right,top,bottom,image,height,width)/255.0
-        print faces[i].shape
+        print(faces[i].shape)
         # cv2.imshow('f',faces[i][0])
         #  cv2.waitKey(0)
     return faces
@@ -184,11 +186,11 @@ def predictImage(filename):
     mean = caffe.io.blobproto_to_array(a)[0]
 
     while line:
-        print index
+        print(index)
         line = line.strip()
         info = line.split(' ')
         imgPath = info[0]
-        print imgPath
+        print(imgPath)
         num = 1
         colorImage = cv2.imread(imgPath)
         bboxs = detectFace(colorImage)

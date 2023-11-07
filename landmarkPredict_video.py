@@ -3,6 +3,8 @@
 # pylint: disable=C0103
 # pylint: disable=E1101
 
+from __future__ import print_function
+
 import os
 import sys
 import time
@@ -92,7 +94,7 @@ def show_image(img, landmarks, bboxs, headposes, enableSampling=False):
                 datetimeStr = time.strftime("%Y%m%d_%H%M%S", time.localtime())
                 pngname = os.path.join(pyrDir, "%s.jpg" % datetimeStr)
                 cv2.imwrite(pngname, orgImg)
-                print pngname
+                print(pngname)
 
 
     height, width = img.shape[:2]
@@ -136,8 +138,8 @@ def predictVideo(uvcID):
 
 if __name__ == '__main__':
     if len(sys.argv) < 2:
-        print """usage: %s uvcID
-        """ % sys.argv[0]
+        print("""usage: %s uvcID
+        """ % sys.argv[0])
         exit()
 
     uvcID = int(sys.argv[1])
